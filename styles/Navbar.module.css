@@ -3,5 +3,25 @@
     background-color: #7D5A50;
     color: white;
     height: 80px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 
+}
+
+.links{
+
+    display: flex;
+    margin: 5px;
+}
+
+.navlink{
+    margin: 7px;
+    color: white;
+    text-decoration: none;
+}
+
+.brand{
+    margin-top: 6px;
+    font-size: 25px;
 }
