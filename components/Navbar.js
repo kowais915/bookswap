@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
 
         <div className={styles.brand}>
-            BookSwap
+           <Link  className = {styles.navlink} href="/">BookSwap</Link>
         </div>
 
        <div className={styles.links}>
