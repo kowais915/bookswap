@@ -6,20 +6,25 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Introduction from '@/components/Introduction'
 import Featured from '@/components/Featured'
+import Footer from '@/components/Footer'
+import Layout from '@/components/Layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <>
+    <Layout>
       <div>
 
-        <Navbar/>
+        
         <Hero/>
         <Introduction/>
         <Featured/>
+   
 
       </div>
+      </Layout>
      
 
 

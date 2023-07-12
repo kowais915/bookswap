@@ -1,11 +1,17 @@
 .card{
     height: 395px;
     width: 300px;
-    box-shadow: 5px 5px 5px rgba(0,0,0);
+    box-shadow: 3px 1px 10px rgba(0,0,0);
     background-color: pink;
     margin: 20px;
     margin-bottom: 50px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    background-color: #F6F6F6;
 
 
 }
+
+
+/* data about books */
+

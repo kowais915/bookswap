@@ -9,6 +9,8 @@ const Featured = () => {
 
             <div className={styles.cards}>
                 <Card/>
+                <Card/>
+                <Card/>
             </div>
 
         </div>
