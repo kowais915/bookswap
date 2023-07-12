@@ -18,6 +18,8 @@ const Card = ({picture, title, owner, location, status}) => {
             <p>Author: Saad</p>
 
             {/* Location */}
+
+            
             <p>Location: Peshawar</p>
         
         </div>

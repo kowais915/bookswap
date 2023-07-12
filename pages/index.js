@@ -8,10 +8,19 @@ import Introduction from '@/components/Introduction'
 import Featured from '@/components/Featured'
 import Footer from '@/components/Footer'
 import Layout from '@/components/Layout'
+import {useFetch } from '../hooks/useFetch';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const url = "https://api.spacexdata.com/v4/rockets"
+  const {data} = useFetch(url);
+
+  console.log("data: ", data);
+
+
+
   return (
     <>
     <Layout>
