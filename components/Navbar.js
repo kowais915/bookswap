@@ -1,6 +1,10 @@
 import styles from '../styles/Navbar.module.css'
 import Link from 'next/link'
 
+//mui stuff
+import Switch from '@mui/material/Switch';
+
+
 const Navbar = () => {
     return ( 
     <>
@@ -22,6 +26,11 @@ const Navbar = () => {
             <Link className={styles.navlink} href="/signin">Login</Link>
 
             <Link className={styles.navlink} href="/signup">Sign up</Link>
+
+            <Switch
+              
+                inputProps={{ 'aria-label': 'controlled' }}
+            />
 
 
            
