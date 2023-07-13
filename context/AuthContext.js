@@ -14,13 +14,7 @@ const authReducer = (state, action)=>{
     }
 }
 
-useEffect(()=>{
-    const user = JSON.parse(localStorage.getItem('user'));
 
-
-
-
-}, [])
 
 
 
@@ -38,7 +32,7 @@ export const AuthProvider = ({children})=>{
 
     return(
         
-        <AuthContext.Provider >
+        <AuthContext.Provider value = {{...state, dispatch}}>
 
             {children}
 
