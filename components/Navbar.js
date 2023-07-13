@@ -49,10 +49,14 @@ const Navbar = () => {
 
             <Link className={styles.navlink} href="/">Contact</Link>
 
+            <Link className={styles.navlink} href="/dashboard">Dashboard</Link>
+
 
             <Link className={styles.navlink} href="/signin">Login</Link>
 
             <Link className={styles.navlink} href="/signup">Sign up</Link>
+
+            
 
             <Switch
                 checked={checked}
