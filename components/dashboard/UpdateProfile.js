@@ -22,7 +22,7 @@ import styles from '../../styles/Dashboard.module.css'
 
 const defaultTheme = createTheme();
 
-export default function SignUp() {
+export default function UpdateProfile() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

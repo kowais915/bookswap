@@ -23,7 +23,7 @@ import styles from '../../styles/Dashboard.module.css'
 import {useState} from 'react';
 
 // * dashboard components
-import Profile from './Profile';
+import UpateProfile from './UpdateProfile';
 import Avatar from '@mui/material/Avatar'
 import ListItems from './ListItems';
 import Books from './Books';
@@ -31,6 +31,7 @@ import Books from './Books';
 // * importing dashboard context
 import {DashboardContext} from '../../context/DashboardContext';
 import {useContext } from 'react';
+import UpdateProfile from './UpdateProfile';
 
 
 
@@ -115,7 +116,7 @@ export default function Dashboard() {
   const myPage = (page)=>{
     switch(page){
       case "Update Information":
-        return <Profile/>
+        return <UpdateProfile/>
         break;
       case "Profile":
         return <Books/>
@@ -166,7 +167,7 @@ export default function Dashboard() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Update Information
+              {page}
             </Typography>
 
             <Stack direction="row" spacing={2}>
