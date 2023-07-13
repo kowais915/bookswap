@@ -26,6 +26,7 @@ import {useState} from 'react';
 import Profile from './Profile';
 import Avatar from '@mui/material/Avatar'
 import ListItems from './ListItems';
+import Books from './Books';
 
 // * importing dashboard context
 import {DashboardContext} from '../../context/DashboardContext';
@@ -100,13 +101,28 @@ const defaultTheme = createTheme();
 
 export default function Dashboard() {
 
+  //* using page's value from context
+  const {page, changePage, dispatch} = useContext(DashboardContext);
+
+
   //  * destructring the listitems 
   const {mainListItems } = ListItems();
 
 
-  // * using state for conditonal rendering of dashboard content
-  const [page, setPage] = useState(null);
 
+  // *conditonal rendering based context state
+ 
+  const myPage = (page)=>{
+    switch(page){
+      case "Update Information":
+        return <Profile/>
+        break;
+      case "Profile":
+        return <Books/>
+        break;
+    }
+
+  }
 
 
   // * handlpage 
@@ -219,9 +235,10 @@ export default function Dashboard() {
                     width: 1000
                   }}
                 >
-                   
+                
+              
 
-                  <Profile/>
+                  {myPage(page)}
                 
 
                 </Paper>
