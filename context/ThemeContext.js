@@ -16,6 +16,17 @@ const themeReducer = (state, action)=>{
 
 }
 
+const customFunction = ()=>{
+    return(
+        <>
+            <h1>What is going one?</h1>
+
+            This is greate
+        
+        </>
+    )
+}
+
 export const ThemeProvider = ({children})=>{
     const [state, dispatch] = useReducer(themeReducer, {
        color: "#7D5A50"
