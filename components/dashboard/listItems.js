@@ -9,36 +9,69 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import styles from '../../styles/Icons.module.css'
+import  {useRouter} from 'next/router';
+
+
+
+
+const ListItems = () => {
+  const router = useRouter();
+
+  
+}
+ 
+
+
+
+
+
+
+
+
 
 export const mainListItems = (
+
+
   <React.Fragment>
-    <ListItemButton>
+
+    <ListItemButton onClick={()=>}>
       <ListItemIcon>
-        <DashboardIcon />
+          <DashboardIcon className={styles.icon} />
+        </ListItemIcon>
+        <ListItemText primary="Home"  />
+      </ListItemButton>
+    <ListItemButton>
+
+
+      <ListItemIcon>
+        <DashboardIcon className={styles.icon} />
       </ListItemIcon>
       <ListItemText primary="Update Information" />
     </ListItemButton>
    
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <PeopleIcon className={styles.icon} />
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <BarChartIcon />
+        <BarChartIcon className={styles.icon}/>
       </ListItemIcon>
       <ListItemText primary="Exchanged" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <LayersIcon />
+        <LayersIcon className={styles.icon}/>
       </ListItemIcon>
       <ListItemText primary="Integrations" />
     </ListItemButton>
   </React.Fragment>
 );
+
+export default ListItems;
 
 // export const secondaryListItems = (
 //   <React.Fragment>

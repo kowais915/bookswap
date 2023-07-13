@@ -1,6 +1,6 @@
 import styles from '../styles/Hero.module.css'
 import Image from 'next/image'
-import UserImage from '../components/dashboard/UserImage';
+
 
 const Hero = () => {
     return ( 

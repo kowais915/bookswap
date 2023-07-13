@@ -17,14 +17,17 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from '../listItems';
+import { mainListItems, secondaryListItems } from './listItems';
 import Stack from '@mui/material/Stack';
 import Image from 'next/image'
 import styles from '../../styles/Dashboard.module.css'
-// dashboard components
-import Profile from './Profile';
+import {useState} from 'react';
 
+// * dashboard components
+import Profile from './Profile';
 import Avatar from '@mui/material/Avatar'
+
+
 
 
 
@@ -88,10 +91,24 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
+
+
+  // * using state for conditonal rendering of dashboard content
+  const [page, setPage] = useState(null);
+
+
+
+  // * handlpage 
+
+  const handlePage = (event)=>{
+    setPage()
+  }
+
+
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);

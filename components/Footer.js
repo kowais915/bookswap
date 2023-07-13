@@ -1,8 +1,6 @@
 import styles from '../styles/Footer.module.css';
 import {ThemeContext } from '../context/ThemeContext';
 import {useContext } from 'react';
-import UserAvatar from '../components/dashboard/UserAvatar';
-import UserImage from '../components/dashboard/UserImage'
 import Image from 'next/image';
 import Avatar from '@mui/material/Avatar';
 
