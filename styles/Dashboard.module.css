@@ -8,8 +8,14 @@
     background-color:#7D5A50;
 }
 
-.upload{
 
-   
-   
-}
+/* <Button
+                  variant="contained"
+                  component="label"
+                >
+                  Upload File
+                  <input
+                    type="file"
+                    hidden
+                  />
+                </Button> */

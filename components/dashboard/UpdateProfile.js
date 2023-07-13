@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Image from 'next/image'
+import {useState} from 'react';
+
 
 // * using dashboard styles here for this component
 
@@ -23,6 +25,14 @@ import styles from '../../styles/Dashboard.module.css'
 const defaultTheme = createTheme();
 
 export default function UpdateProfile() {
+const [file, setFile ] = useState(null);
+
+const handleUpload = (event)=>{
+  
+   console.log(file)
+}
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -78,12 +88,19 @@ export default function UpdateProfile() {
                   <Button 
                     variant="outlined"
                     component="label"
-
+                   
                     
                   >
                     Upload
                     <input 
+
+                      onChange={(e)=>setFile(e.target.files[0])}
+                      onClick={(e)=>{
+
                       
+
+                        handleUpload()
+                      }}
                      type="file" 
                      hidden
                     />
