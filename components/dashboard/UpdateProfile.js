@@ -75,7 +75,19 @@ export default function UpdateProfile() {
               {/* //* upload image button */}
               <Grid item xs={12}>
                 <Typography align="center">
-                  <Button variant="outlined">Upload</Button>
+                  <Button 
+                    variant="outlined"
+                    component="label"
+
+                    
+                  >
+                    Upload
+                    <input 
+                      
+                     type="file" 
+                     hidden
+                    />
+                  </Button>
                 </Typography>
               </Grid>
 
