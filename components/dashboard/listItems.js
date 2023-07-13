@@ -31,6 +31,10 @@ const ListItems = () => {
    
   }
 
+  const handleRoute = ()=>{
+    router.push('/')
+  }
+
   const mainListItems = (
 
 
@@ -48,20 +52,6 @@ const ListItems = () => {
 
 
 
-      <ListItemButton
-
-        onClick={()=>changePage('Update Information')}
-      
-      >
-  
-  
-        <ListItemIcon>
-          <DashboardIcon className={styles.icon} />
-        </ListItemIcon>
-        <ListItemText primary="Update Information" />
-      </ListItemButton>
-     
-
      {/* //* profile */}
       <ListItemButton
          onClick={()=>changePage('Profile')}
@@ -72,6 +62,25 @@ const ListItems = () => {
         </ListItemIcon>
         <ListItemText primary="Profile" />
       </ListItemButton>
+
+      {/* //* update information */}
+
+
+
+        <ListItemButton
+
+          // onClick={()=>changePage('Update Information')}
+          onClick={()=> changePage('Update Information')}
+        
+        >
+    
+    
+          <ListItemIcon>
+            <DashboardIcon className={styles.icon} />
+          </ListItemIcon>
+          <ListItemText primary="Update Information" />
+        </ListItemButton>
+     
 
       {/* //* Exchanged */}
       <ListItemButton
@@ -86,12 +95,12 @@ const ListItems = () => {
 
       {/* //* integrations */}
       <ListItemButton
-        onClick={()=>changePage('Integrations')}
+        onClick={()=>changePage('Books')}
       >
         <ListItemIcon>
           <LayersIcon className={styles.icon}/>
         </ListItemIcon>
-        <ListItemText primary="Integrations" />
+        <ListItemText primary="Books" />
       </ListItemButton>
     </React.Fragment>
   );

@@ -26,12 +26,13 @@ import {useState} from 'react';
 import UpateProfile from './UpdateProfile';
 import Avatar from '@mui/material/Avatar'
 import ListItems from './ListItems';
-import Books from './Books';
+import Books from './pages/Books';
 
 // * importing dashboard context
 import {DashboardContext} from '../../context/DashboardContext';
 import {useContext } from 'react';
 import UpdateProfile from './UpdateProfile';
+import Exchanged from './pages/Exchanged';
 
 
 
@@ -118,8 +119,11 @@ export default function Dashboard() {
       case "Update Information":
         return <UpdateProfile/>
         break;
-      case "Profile":
+      case "Books":
         return <Books/>
+        break;
+      case "Exchanged":
+        return <Exchanged/>
         break;
     }
 
