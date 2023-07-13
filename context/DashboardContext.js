@@ -1,4 +1,4 @@
-import {createContext, useRender } from 'react';
+import {createContext, useReducer } from 'react';
 
 
 export const DashboardContext = createContext();
@@ -28,7 +28,7 @@ export const DashboardProvider = ({children})=>{
     }
 
     return(
-        <DashboardContext.Provider value={{...state, changePage}}>
+        <DashboardContext.Provider value={{...state, changePage, dispatch}}>
                 {children}
         </DashboardContext.Provider>
     )

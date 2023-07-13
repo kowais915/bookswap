@@ -12,65 +12,96 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import styles from '../../styles/Icons.module.css'
 import  {useRouter} from 'next/router';
 
+// *using context
+import {useContext } from 'react';
+import {DashboardContext } from '../../context/DashboardContext';
+
+
 
 
 
 const ListItems = () => {
   const router = useRouter();
+  const {page, changePage} = useContext(DashboardContext);
+
+  console.log('current page', page);
+  const changer = ()=>{
+    alert('clicked')
+    router.push('/')
+   
+  }
+
+  const mainListItems = (
+
+
+
+    <React.Fragment>
+  
+      <ListItemButton 
+         onClick={  ()=> router.push('/')}
+      >
+        <ListItemIcon>
+            <DashboardIcon className={styles.icon} />
+          </ListItemIcon>
+          <ListItemText primary="Home"  />
+        </ListItemButton>
+
+
+
+      <ListItemButton
+
+        onClick={()=>changePage('Update Information')}
+      
+      >
+  
+  
+        <ListItemIcon>
+          <DashboardIcon className={styles.icon} />
+        </ListItemIcon>
+        <ListItemText primary="Update Information" />
+      </ListItemButton>
+     
+
+     {/* //* profile */}
+      <ListItemButton
+         onClick={()=>changePage('Profile')}
+      
+      >
+        <ListItemIcon>
+          <PeopleIcon className={styles.icon} />
+        </ListItemIcon>
+        <ListItemText primary="Profile" />
+      </ListItemButton>
+
+      {/* //* Exchanged */}
+      <ListItemButton
+      onClick={()=>changePage('Exchanged')}
+      
+      >
+        <ListItemIcon>
+          <BarChartIcon className={styles.icon}/>
+        </ListItemIcon>
+        <ListItemText primary="Exchanged" />
+      </ListItemButton>
+
+      {/* //* integrations */}
+      <ListItemButton
+        onClick={()=>changePage('Integrations')}
+      >
+        <ListItemIcon>
+          <LayersIcon className={styles.icon}/>
+        </ListItemIcon>
+        <ListItemText primary="Integrations" />
+      </ListItemButton>
+    </React.Fragment>
+  );
+
+
+  return { mainListItems };
 
   
 }
  
-
-
-
-
-
-
-
-
-
-export const mainListItems = (
-
-
-  <React.Fragment>
-
-    <ListItemButton onClick={()=>}>
-      <ListItemIcon>
-          <DashboardIcon className={styles.icon} />
-        </ListItemIcon>
-        <ListItemText primary="Home"  />
-      </ListItemButton>
-    <ListItemButton>
-
-
-      <ListItemIcon>
-        <DashboardIcon className={styles.icon} />
-      </ListItemIcon>
-      <ListItemText primary="Update Information" />
-    </ListItemButton>
-   
-    <ListItemButton>
-      <ListItemIcon>
-        <PeopleIcon className={styles.icon} />
-      </ListItemIcon>
-      <ListItemText primary="Profile" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <BarChartIcon className={styles.icon}/>
-      </ListItemIcon>
-      <ListItemText primary="Exchanged" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <LayersIcon className={styles.icon}/>
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItemButton>
-  </React.Fragment>
-);
-
 export default ListItems;
 
 // export const secondaryListItems = (

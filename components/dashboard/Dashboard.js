@@ -17,7 +17,6 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
 import Stack from '@mui/material/Stack';
 import Image from 'next/image'
 import styles from '../../styles/Dashboard.module.css'
@@ -26,6 +25,11 @@ import {useState} from 'react';
 // * dashboard components
 import Profile from './Profile';
 import Avatar from '@mui/material/Avatar'
+import ListItems from './ListItems';
+
+// * importing dashboard context
+import {DashboardContext} from '../../context/DashboardContext';
+import {useContext } from 'react';
 
 
 
@@ -95,6 +99,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
+
+  //  * destructring the listitems 
+  const {mainListItems } = ListItems();
 
 
   // * using state for conditonal rendering of dashboard content
@@ -181,7 +188,7 @@ export default function Dashboard() {
           <List component="nav">
             {mainListItems}
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+          
           </List>
         </Drawer>
 
