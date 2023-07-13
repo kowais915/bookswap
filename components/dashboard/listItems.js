@@ -12,7 +12,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import styles from '../../styles/Icons.module.css'
 import  {useRouter} from 'next/router';
 
-// *using context
+// * using context
 import {useContext } from 'react';
 import {DashboardContext } from '../../context/DashboardContext';
 

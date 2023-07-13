@@ -33,6 +33,12 @@ import {DashboardContext} from '../../context/DashboardContext';
 import {useContext } from 'react';
 import UpdateProfile from './UpdateProfile';
 import Exchanged from './pages/Exchanged';
+import Profile from './pages/Profile';
+
+// * dark mode context
+
+import {ThemeContext } from '../../context/ThemeContext';
+
 
 
 
@@ -103,6 +109,9 @@ const defaultTheme = createTheme();
 
 export default function Dashboard() {
 
+  // * Theme context
+  const {color, changeColor } = useContext(ThemeContext);
+
   //* using page's value from context
   const {page, changePage, dispatch} = useContext(DashboardContext);
 
@@ -125,6 +134,9 @@ export default function Dashboard() {
       case "Exchanged":
         return <Exchanged/>
         break;
+      case "Profile":
+        return <Profile/>
+        break;
     }
 
   }
@@ -144,9 +156,9 @@ export default function Dashboard() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex' }} >
         <CssBaseline />
-        <AppBar position="absolute" open={open} className ={styles.appbar}>
+        <AppBar position="absolute" open={open} className ={styles.appbar} style={{background: color}}>
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
