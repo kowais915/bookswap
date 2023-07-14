@@ -13,11 +13,6 @@ const Footer = () => {
            
 
 
-              <Avatar
-                src='/book.png'
-                alt='book'
-              />
-
          
 
            
