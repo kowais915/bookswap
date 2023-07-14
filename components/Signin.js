@@ -14,8 +14,11 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useRouter} from 'next/router';
 
+// *importing styles for errors
+import styles from "../styles/Errors.module.css";
+
 // * useState hook
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 // * context hook
 import {useAuthContext} from '../hooks/useAuthContext';
@@ -62,16 +65,18 @@ export default function SignInSide() {
 
   // * using the uselogin hook
 
-  const {signin} = useSignin();
+  const {signin, error} = useSignin();
 
 
   // * handle the signin functionality
-    const signMeIn = ()=>{
+  useEffect(()=>{
 
-      if(loggedUser){
-        router.push('/dashboard')
-      }
-  }
+    if(loggedUser.user){
+      router.push('/dashboard')
+    }
+
+
+  },[loggedUser.user])
 
 
 
@@ -83,7 +88,7 @@ export default function SignInSide() {
 
     // * direct the logged in user to the dashboard
     
-    signMeIn();
+ 
    
 
 
@@ -157,6 +162,7 @@ export default function SignInSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+                {error && <span className={styles.error} >{error}</span>}
               <Button
                 type="submit"
                 fullWidth

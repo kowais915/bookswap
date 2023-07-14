@@ -12,13 +12,14 @@ export const useSignup = () => {
 
     // * making a post request to our backend to login users
 
-    const resp = await fetch("", {
+    const resp = await fetch("http://localhost:8000/api/auth/sigup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
 
     const json = await resp.json();
+    console.log(error);
 
 
     // * Outputting an error if the response is not ok
@@ -26,6 +27,8 @@ export const useSignup = () => {
     if(!resp.ok){
         setIsLoading(false);
         setError((old) => old = json.error);
+        
+        
 
     }
 
