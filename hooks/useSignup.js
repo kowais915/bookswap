@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import {useRouter} from 'next/router';
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const { dispatch } = useAuthContext();
+  const {  dispatch } = useAuthContext();
+  const router = useRouter();
+
+
+
+
 
   const signup = async (email, password) => {
     setIsLoading(true);
@@ -12,7 +18,7 @@ export const useSignup = () => {
 
     // * making a post request to our backend to login users
 
-    const resp = await fetch("http://localhost:8000/api/auth/sigup", {
+    const resp = await fetch("https://bookswap-api-production.up.railway.app/api/auth/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -38,6 +44,7 @@ export const useSignup = () => {
         localStorage.setItem('user', JSON.stringify(json));
         dispatch({type: 'LOGIN', payload: json})
         setIsLoading(false);
+        router.push('/');
     }
   };
 

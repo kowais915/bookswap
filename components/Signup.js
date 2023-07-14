@@ -13,6 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+//* importing styles for error messages
+import styles from '../styles/Errors.module.css'
+
 // * hooks
 
 import {useState } from 'react';
@@ -83,7 +86,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign up
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -116,13 +119,15 @@ export default function SignUp() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+
+            {error && <span className={styles.error}>{error}</span>}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item xs>
