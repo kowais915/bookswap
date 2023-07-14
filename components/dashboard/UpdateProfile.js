@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Image from 'next/image'
 import {useState} from 'react';
 
+// * using the mui file upload component
+
 
 // * using dashboard styles here for this component
 
