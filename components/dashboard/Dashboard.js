@@ -214,9 +214,23 @@ export default function Dashboard() {
               px: [1],
             }}
           >
+
+          <Typography
+                align='center'
+                style={{margin:"25px", color: 'brown'}}
+                variant='h5'
+
+              >
+
+                BookSwap
+                
+            </Typography>
             <IconButton onClick={toggleDrawer}>
+             
               <ChevronLeftIcon />
             </IconButton>
+
+          
           </Toolbar>
           <Divider />
           <List component="nav">
