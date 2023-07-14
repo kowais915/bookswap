@@ -16,6 +16,9 @@ import {useSignout} from '../hooks/useSignout';
 import {useRouter} from 'next/router';
 
 
+// * importing the protected component
+import Protected from './Protected';
+
 
 const Navbar = () => {
     const {color, changeColor } = useContext(ThemeContext);
@@ -68,7 +71,11 @@ const Navbar = () => {
 
             <Link className={styles.navlink} href="/">Contact</Link>
 
-            <Link className={styles.navlink} href="/dashboard">Dashboard</Link>
+            {/* //* protecting dashboard  */}
+
+            
+            
+            { !user ? null : <Link className={styles.navlink} href="/dashboard">Dashboard</Link>}
 
             {user && <Link className={styles.navlink} href="/dashboard">{user.user.email}</Link>}
 
