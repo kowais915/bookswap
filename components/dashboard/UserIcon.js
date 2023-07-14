@@ -4,15 +4,37 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 import Avatar from '@mui/material/Avatar';
+import {useRouter } from 'next/router'
+
+// * using auth context
+
+import {useAuthContext } from '../../hooks/useAuthContext';
+import { useSignout } from '@/hooks/useSignout';
 
 export default function UserIcon() {
+    //* user from the context
+
+    const {user } = useAuthContext();
+
+
+
+    // * importing "signout" function to log the user out from the dashbaord menu
+    const {signout} = useSignout();
+
+    const router = useRouter();
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    signout();
+    if(!user){
+        router.push('/');
+    }
+
   };
 
   return (
