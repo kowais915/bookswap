@@ -27,6 +27,7 @@ import UpateProfile from './UpdateProfile';
 import Avatar from '@mui/material/Avatar'
 import ListItems from './ListItems';
 import Books from './pages/Books';
+import UserIcon from './UserIcon';
 
 // * importing dashboard context
 import {DashboardContext} from '../../context/DashboardContext';
@@ -128,6 +129,9 @@ export default function Dashboard() {
       case "Update Information":
         return <UpdateProfile/>
         break;
+      case "Home":
+        return <UpdateProfile/>
+        break;
       case "Books":
         return <Books/>
         break;
@@ -155,7 +159,7 @@ export default function Dashboard() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={defaultTheme} >
       <Box sx={{ display: 'flex' }} >
         <CssBaseline />
         <AppBar position="absolute" open={open} className ={styles.appbar} style={{background: color}}>
@@ -196,10 +200,7 @@ export default function Dashboard() {
             </IconButton>
 
                 {/* {//* user avatar} */}
-              <Avatar
-                src='/user.jpeg'
-                alt='book'
-              />
+                  <UserIcon/>
 
             </Stack>
           </Toolbar>
@@ -227,7 +228,9 @@ export default function Dashboard() {
 
         {/* //* dashboard content start here */}
         <Box
+          className={styles.paper}
           component="main"
+          
           sx={{
             backgroundColor: (theme) =>
               theme.palette.mode === 'light'
@@ -239,18 +242,23 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }} >
+            <Grid container spacing={3} >
               {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
+              <Grid item xs={12} md={8} lg={9} >
                 <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
                     height:700,
-                    width: 1000
+                  
+                    
                   }}
+
+                  align="center"
+
+                  className={styles.paper}
                 >
                 
               

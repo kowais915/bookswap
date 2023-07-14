@@ -11,6 +11,12 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import styles from '../../styles/Icons.module.css'
 import  {useRouter} from 'next/router';
+// *  icons
+import EditIcon from '@mui/icons-material/Edit';
+import MoveUpIcon from '@mui/icons-material/MoveUp';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import HomeIcon from '@mui/icons-material/Home';
+
 
 // * using context
 import {useContext } from 'react';
@@ -45,7 +51,7 @@ const ListItems = () => {
          onClick={  ()=> router.push('/')}
       >
         <ListItemIcon>
-            <DashboardIcon className={styles.icon} />
+            <HomeIcon className={styles.icon} />
           </ListItemIcon>
           <ListItemText primary="Home"  />
         </ListItemButton>
@@ -76,7 +82,7 @@ const ListItems = () => {
     
     
           <ListItemIcon>
-            <DashboardIcon className={styles.icon} />
+            <EditIcon className={styles.icon} />
           </ListItemIcon>
           <ListItemText primary="Update Information" />
         </ListItemButton>
@@ -88,7 +94,7 @@ const ListItems = () => {
       
       >
         <ListItemIcon>
-          <BarChartIcon className={styles.icon}/>
+          <MoveUpIcon className={styles.icon}/>
         </ListItemIcon>
         <ListItemText primary="Exchanged" />
       </ListItemButton>
@@ -98,7 +104,7 @@ const ListItems = () => {
         onClick={()=>changePage('Books')}
       >
         <ListItemIcon>
-          <LayersIcon className={styles.icon}/>
+          <ImportContactsIcon className={styles.icon}/>
         </ListItemIcon>
         <ListItemText primary="Books" />
       </ListItemButton>

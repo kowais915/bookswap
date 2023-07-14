@@ -17,7 +17,7 @@ const dashboardReducer = (state, action)=>{
 export const DashboardProvider = ({children})=>{
 
     const [state, dispatch] = useReducer(dashboardReducer, {
-        page: 'home'
+        page: 'Home'
     })
 
 

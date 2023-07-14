@@ -2,13 +2,18 @@ import Image from "next/image";
 import styles from "../../../styles/Dashboard.module.css";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { Paper } from "@mui/material";
 
 const Profile = () => {
   return (
     <div>
+      
       <div>
+     
         <Stack direction="row" spacing={10}>
           <Stack spacing={2}>
+
+            
             <Image
               src="/user.jpeg"
               alt="user image"
