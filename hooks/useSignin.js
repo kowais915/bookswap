@@ -1,21 +1,21 @@
 import { useState } from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useAuthContext } from "./useAuthContext";
 
-export const useLogin = () => {
+export const useSignin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
-  const login = async (email, password) => {
+  const signin = async (email, password) => {
     setIsLoading(true);
     setError(null);
 
     // * making a post request to our backend to login users
 
-    const resp = await fetch("", {
+    const resp = await fetch("https://bookswap-api-production.up.railway.app/api/auth/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password })
     });
 
     const json = await resp.json();
@@ -26,6 +26,7 @@ export const useLogin = () => {
     if(!resp.ok){
         setIsLoading(false);
         setError((old) => old = json.error);
+        console.log(error);
 
     }
 
@@ -38,5 +39,5 @@ export const useLogin = () => {
     }
   };
 
-  return {login, isLoading, error};
+  return {signin, isLoading, error};
 };

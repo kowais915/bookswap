@@ -12,6 +12,17 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useRouter} from 'next/router';
+
+// * useState hook
+import {useState} from 'react';
+
+// * context hook
+import {useAuthContext} from '../hooks/useAuthContext';
+
+// * importing auth hooks
+import { useSignin } from '@/hooks/useSignin';
+
 
 function Copyright(props) {
   return (
@@ -26,20 +37,61 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
 
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+
+  // * using the auth hook
+  const loggedUser = useAuthContext();
+
+
+  // *using state to store the form values
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const router = useRouter();
+
+
+
+  // console.log("Email: ", email)
+  // console.log("Password: ", password)
+
+
+
+  // * using the uselogin hook
+
+  const {signin} = useSignin();
+
+
+  // * handle the signin functionality
+    const signMeIn = ()=>{
+
+      if(loggedUser){
+        router.push('/dashboard')
+      }
+  }
+
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    console.log({email, password});
+    signin(email, password)
+
+    // * direct the logged in user to the dashboard
+    
+    signMeIn();
+   
+
+
+   
   };
 
+ 
+ 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -84,6 +136,9 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                // *setting email state to the user's email address
+                onChange={(e)=>setEmail(e.target.value)}
+                value={email}
               />
               <TextField
                 margin="normal"
@@ -94,6 +149,9 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                // *setting password state to the user's password
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

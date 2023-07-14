@@ -2,13 +2,18 @@ import styles from '../styles/Navbar.module.css'
 import Link from 'next/link'
 import {useState } from 'react';
 
-//mui stuff
+//* mui stuff
 import Switch from '@mui/material/Switch';
 
 
-// context
+//* context
 import {useContext } from 'react';
 import {ThemeContext } from '../context/ThemeContext';
+import {useAuthContext} from '../hooks/useAuthContext';
+import {useSignout} from '../hooks/useSignout';
+
+// *next router hook
+import {useRouter} from 'next/router';
 
 
 
@@ -16,10 +21,24 @@ const Navbar = () => {
     const {color, changeColor } = useContext(ThemeContext);
     const [toggle, setToggle ] = useState(false);
     const [checked, setChecked] = useState(false);
+    const {signout} = useSignout();
+    const {user} = useAuthContext();
+    const router = useRouter();
 
 
-    console.log("color: ", )
-    //handle the switch
+
+    // *handle the signout functionality
+    const signMeOut = ()=>{
+
+        signout()
+        router.push('/');
+
+    }
+
+
+  
+
+    // * handle the switch
     const handleToggle = (event)=>{
 
        
@@ -51,10 +70,12 @@ const Navbar = () => {
 
             <Link className={styles.navlink} href="/dashboard">Dashboard</Link>
 
+            {user && <Link className={styles.navlink} href="/dashboard">{user.user.email}</Link>}
 
-            <Link className={styles.navlink} href="/signin">Login</Link>
+            {!user ? <Link className={styles.navlink} href="/signin">Login</Link> : <Link className={styles.navlink} href="/signin" onClick={()=>signMeOut()}>Logout</Link> }
+            
 
-            <Link className={styles.navlink} href="/signup">Sign up</Link>
+           {!user ?  <Link className={styles.navlink} href="/signup">Sign up</Link> : null}
 
             
 
