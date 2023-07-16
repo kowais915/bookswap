@@ -28,6 +28,7 @@ import Avatar from '@mui/material/Avatar'
 import ListItems from './ListItems';
 import Books from './pages/Books';
 import UserIcon from './UserIcon';
+import Add from './pages/Add';
 
 // * importing dashboard context
 import {DashboardContext} from '../../context/DashboardContext';
@@ -132,6 +133,9 @@ export default function Dashboard() {
       case "Home":
         return <UpdateProfile/>
         break;
+      case "List a Book":
+          return <Add/>
+          break;
       case "Books":
         return <Books/>
         break;

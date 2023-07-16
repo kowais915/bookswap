@@ -16,6 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import MoveUpIcon from '@mui/icons-material/MoveUp';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import HomeIcon from '@mui/icons-material/Home';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
 // * using context
@@ -54,6 +55,16 @@ const ListItems = () => {
             <HomeIcon className={styles.icon} />
           </ListItemIcon>
           <ListItemText primary="Home"  />
+        </ListItemButton>
+
+
+        <ListItemButton 
+         onClick={()=>changePage('List a Book')}
+      >
+        <ListItemIcon>
+            <AddCircleOutlineIcon className={styles.icon} />
+          </ListItemIcon>
+          <ListItemText primary="List a Book"  />
         </ListItemButton>
 
 
