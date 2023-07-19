@@ -15,6 +15,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Image from 'next/image'
 import {useState} from 'react';
 
+//  * importing styles
+
+
 // * using the mui file upload component
 
 
@@ -32,6 +35,8 @@ const [file, setFile ] = useState(null);
 const handleUpload = (event)=>{
   
    console.log(file)
+   setFile(file);
+
 }
 
 
@@ -83,7 +88,6 @@ const handleUpload = (event)=>{
 
 
 
-
               {/* //* upload image button */}
               <Grid item xs={12}>
                 <Typography align="center">
@@ -94,6 +98,8 @@ const handleUpload = (event)=>{
                     
                   >
                     Upload
+
+                   
                     <input 
 
                       onChange={(e)=>setFile(e.target.files[0])}
@@ -107,6 +113,10 @@ const handleUpload = (event)=>{
                      hidden
                     />
                   </Button>
+
+                  {/* // * display the file here */}
+
+                  <span>this is the file</span>
                 </Typography>
               </Grid>
 
@@ -148,6 +158,17 @@ const handleUpload = (event)=>{
                 <TextField
                   required
                   fullWidth
+                  id="bio"
+                  label="Phone Number"
+                  name="bio"
+                  autoComplete="bio"
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
                   id="interests"
                   label="Interests"
                   name="interests"
@@ -155,6 +176,8 @@ const handleUpload = (event)=>{
                 />
               </Grid>
             </Grid>
+
+            
             <Button
               type="submit"
               fullWidth
