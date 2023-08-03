@@ -119,7 +119,7 @@ export default function Dashboard() {
 
 
   //  * destructring the listitems 
-  const {mainListItems } = ListItems();
+  const mainListItems  = ListItems();
 
 
 

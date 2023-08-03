@@ -42,7 +42,7 @@ const ListItems = () => {
     router.push('/')
   }
 
-  const mainListItems = (
+ const mainListItems = (
 
 
 
@@ -123,7 +123,7 @@ const ListItems = () => {
   );
 
 
-  return { mainListItems };
+  return mainListItems;
 
   
 }
