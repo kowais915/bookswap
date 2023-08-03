@@ -128,7 +128,7 @@ const ListItems = () => {
   
 }
  
-export {ListItems};
+export default ListItems;
 
 // export const secondaryListItems = (
 //   <React.Fragment>
