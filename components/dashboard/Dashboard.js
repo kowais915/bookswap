@@ -25,7 +25,8 @@ import {useState} from 'react';
 // * dashboard components
 import UpateProfile from './UpdateProfile';
 import Avatar from '@mui/material/Avatar'
-import ListItems from '../../components/dashboard/ListItems';
+// import ListItems from '../../components/dashboard/ListItems';
+import MainListItems from './MainListItems';
 import Books from './pages/Books';
 import UserIcon from './UserIcon';
 import Add from './pages/Add';
@@ -118,8 +119,8 @@ export default function Dashboard() {
   const {page, changePage, dispatch} = useContext(DashboardContext);
 
 
-  //  * destructring the listitems 
-  const mainListItems  = ListItems();
+  // //  * destructring the listitems 
+  // const mainListItems  = ListItems();
 
 
 
@@ -238,7 +239,7 @@ export default function Dashboard() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <MainListItems/>
             <Divider sx={{ my: 1 }} />
           
           </List>

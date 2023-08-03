@@ -22,6 +22,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 // * using context
 import {useContext } from 'react';
 import {DashboardContext } from '../../context/DashboardContext';
+import MainListItems from './MainListItems';
 
 
 
@@ -42,92 +43,18 @@ const ListItems = () => {
     router.push('/')
   }
 
- const mainListItems = (
+ 
 
+  return(
+    <>
+      <MainListItems/>
+    </>
+  )
 
-
-    <React.Fragment>
-  
-      <ListItemButton 
-         onClick={  ()=> router.push('/')}
-      >
-        <ListItemIcon>
-            <HomeIcon className={styles.icon} />
-          </ListItemIcon>
-          <ListItemText primary="Home"  />
-        </ListItemButton>
-
-
-        <ListItemButton 
-         onClick={()=>changePage('List a Book')}
-      >
-        <ListItemIcon>
-            <AddCircleOutlineIcon className={styles.icon} />
-          </ListItemIcon>
-          <ListItemText primary="List a Book"  />
-        </ListItemButton>
-
-
-
-     {/* //* profile */}
-      <ListItemButton
-         onClick={()=>changePage('Profile')}
-      
-      >
-        <ListItemIcon>
-          <PeopleIcon className={styles.icon} />
-        </ListItemIcon>
-        <ListItemText primary="Profile" />
-      </ListItemButton>
-
-      {/* //* update information */}
-
-
-
-        <ListItemButton
-
-          // onClick={()=>changePage('Update Information')}
-          onClick={()=> changePage('Update Information')}
-        
-        >
-    
-    
-          <ListItemIcon>
-            <EditIcon className={styles.icon} />
-          </ListItemIcon>
-          <ListItemText primary="Update Information" />
-        </ListItemButton>
-     
-
-      {/* //* Exchanged */}
-      <ListItemButton
-      onClick={()=>changePage('Exchanged')}
-      
-      >
-        <ListItemIcon>
-          <MoveUpIcon className={styles.icon}/>
-        </ListItemIcon>
-        <ListItemText primary="Exchanged" />
-      </ListItemButton>
-
-      {/* //* integrations */}
-      <ListItemButton
-        onClick={()=>changePage('Books')}
-      >
-        <ListItemIcon>
-          <ImportContactsIcon className={styles.icon}/>
-        </ListItemIcon>
-        <ListItemText primary="Books" />
-      </ListItemButton>
-    </React.Fragment>
-  );
-
-
-  return mainListItems;
 
   
 }
- 
+
 export default ListItems;
 
 // export const secondaryListItems = (
